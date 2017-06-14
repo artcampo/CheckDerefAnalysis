@@ -1,0 +1,14 @@
+../../llvm_install/bin/clang++ test1.cpp
+static volatile bool b;
+
+void f(){
+  int* p; int a; 
+  if(b) a = 2; else p = &a;
+}
+
+int main(){
+  int c;
+  f();
+  return 0;
+}
+./compile1.sh: line 3: ../../llvm_install/bin/clang++: No such file or directory
