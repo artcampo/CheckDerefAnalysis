@@ -1,1 +1,49 @@
-./update.sh: line 2: ./compile0.sh: Permission denied
+../../../llvm_install/bin/clang++ test0.cpp
+static volatile bool b;
+int main(){
+  int c, d; 
+  if(b) c = 1; else d = 2;
+  return 0;
+}
+NullPtrCheckAfterDereference,
+CFG: 
+ [B5 (ENTRY)]
+   Succs (1): B4
+
+ [B1]
+   1: return 0;
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: d
+   2: [B2.1] = 2
+   Preds (1): B4
+   Succs (1): B1
+
+ [B3]
+   1: c
+   2: [B3.1] = 1
+   Preds (1): B4
+   Succs (1): B1
+
+ [B4]
+   1: int c;
+   2: int d;
+   3: b
+   4: [B4.3] (ImplicitCastExpr, LValueToRValue, _Bool)
+   T: if [B4.4]
+   Preds (1): B5
+   Succs (2): B3 B2
+
+ [B0 (EXIT)]
+   Preds (1): B1
+
+
+Enqeue block with ID=5
+Block with ID=5
+Block with ID=4
+Block with ID=2
+Block with ID=3
+Block with ID=1
+Block with ID=0
