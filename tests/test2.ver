@@ -1,14 +1,11 @@
-../../../llvm_install/bin/clang++ test1.cpp
-static volatile bool b;
-
-void f(){
-  int* p; int a; 
-  if(b) a = 2; else p = &a;
-}
-
 int main(){
   int c;
-  f();
+  int* p;
+  p  = &c;
+  *p = 2;
+  if(p){
+    
+  }
   return 0;
 }
 NullPtrCheckAfterDereference,
@@ -17,69 +14,52 @@ CFG:
    Succs (1): B3
 
  [B1]
-   1: a
-   2: &[B1.1]
-   3: p
-   4: [B1.3] = [B1.2]
-   Preds (1): B3
+   1: return 0;
+   Preds (2): B2 B3
    Succs (1): B0
 
  [B2]
-   1: a
-   2: [B2.1] = 2
    Preds (1): B3
-   Succs (1): B0
-
- [B3]
-   1: int *p;
-   2: int a;
-   3: b
-   4: [B3.3] (ImplicitCastExpr, LValueToRValue, _Bool)
-   T: if [B3.4]
-   Preds (1): B4
-   Succs (2): B2 B1
-
- [B0 (EXIT)]
-   Preds (2): B1 B2
-
-
-Enqeue block with ID=4
-Block with ID=4
-Block with ID=3
-DeclRefExpr 0x55dfaafa2cf8 'volatile _Bool' lvalue Var 0x55dfaafa2a18 'b' 'volatile _Bool'
-Block with ID=1
-DeclRefExpr 0x55dfaafa2dd0 'int' lvalue Var 0x55dfaafa2c80 'a' 'int'
-DeclRefExpr 0x55dfaafa2da8 'int *' lvalue Var 0x55dfaafa2bf0 'p' 'int *'
-BinaryOperator 0x55dfaafa2e18 'int *' lvalue '='
-|-DeclRefExpr 0x55dfaafa2da8 'int *' lvalue Var 0x55dfaafa2bf0 'p' 'int *'
-`-UnaryOperator 0x55dfaafa2df8 'int *' prefix '&'
-  `-DeclRefExpr 0x55dfaafa2dd0 'int' lvalue Var 0x55dfaafa2c80 'a' 'int'
-Block with ID=2
-DeclRefExpr 0x55dfaafa2d38 'int' lvalue Var 0x55dfaafa2c80 'a' 'int'
-BinaryOperator 0x55dfaafa2d80 'int' lvalue '='
-|-DeclRefExpr 0x55dfaafa2d38 'int' lvalue Var 0x55dfaafa2c80 'a' 'int'
-`-IntegerLiteral 0x55dfaafa2d60 'int' 2
-Block with ID=0
-NullPtrCheckAfterDereference,
-CFG: 
- [B2 (ENTRY)]
    Succs (1): B1
 
- [B1]
+ [B3]
    1: int c;
-   2: f
-   3: [B1.2] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(void))
-   4: [B1.3]()
-   5: return 0;
-   Preds (1): B2
-   Succs (1): B0
+   2: int *p;
+   3: c
+   4: &[B3.3]
+   5: p
+   6: [B3.5] = [B3.4]
+   7: p
+   8: [B3.7] (ImplicitCastExpr, LValueToRValue, int *)
+   9: *[B3.8]
+  10: [B3.9] = 2
+  11: p
+  12: [B3.11] (ImplicitCastExpr, LValueToRValue, int *)
+  13: [B3.12] (ImplicitCastExpr, PointerToBoolean, _Bool)
+   T: if [B3.13]
+   Preds (1): B4
+   Succs (2): B2 B1
 
  [B0 (EXIT)]
    Preds (1): B1
 
 
-Enqeue block with ID=2
+Enqeue block with ID=4
+Block with ID=4
+Block with ID=3
+DeclRefExpr 0x55bbc4e41c20 'int' lvalue Var 0x55bbc4e41ac0 'c' 'int'
+DeclRefExpr 0x55bbc4e41bf8 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
+BinaryOperator 0x55bbc4e41c68 'int *' lvalue '='
+|-DeclRefExpr 0x55bbc4e41bf8 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
+`-UnaryOperator 0x55bbc4e41c48 'int *' prefix '&'
+  `-DeclRefExpr 0x55bbc4e41c20 'int' lvalue Var 0x55bbc4e41ac0 'c' 'int'
+DeclRefExpr 0x55bbc4e41c90 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
+BinaryOperator 0x55bbc4e41d10 'int' lvalue '='
+|-UnaryOperator 0x55bbc4e41cd0 'int' lvalue prefix '*'
+| `-ImplicitCastExpr 0x55bbc4e41cb8 'int *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bbc4e41c90 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
+`-IntegerLiteral 0x55bbc4e41cf0 'int' 2
+DeclRefExpr 0x55bbc4e41d38 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
 Block with ID=2
 Block with ID=1
-DeclRefExpr 0x55dfaafa30b0 'void (void)' lvalue Function 0x55dfaafa2b10 'f' 'void (void)'
 Block with ID=0

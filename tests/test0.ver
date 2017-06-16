@@ -1,4 +1,3 @@
-../../../llvm_install/bin/clang++ test0.cpp
 static volatile bool b;
 int main(){
   int c, d; 
@@ -43,16 +42,16 @@ CFG:
 Enqeue block with ID=5
 Block with ID=5
 Block with ID=4
-DeclRefExpr 0x55af694c1c38 'volatile _Bool' lvalue Var 0x55af694c1958 'b' 'volatile _Bool'
+DeclRefExpr 0x563c048c7c38 'volatile _Bool' lvalue Var 0x563c048c7958 'b' 'volatile _Bool'
 Block with ID=2
-DeclRefExpr 0x55af694c1ce8 'int' lvalue Var 0x55af694c1ba8 'd' 'int'
-BinaryOperator 0x55af694c1d30 'int' lvalue '='
-|-DeclRefExpr 0x55af694c1ce8 'int' lvalue Var 0x55af694c1ba8 'd' 'int'
-`-IntegerLiteral 0x55af694c1d10 'int' 2
+DeclRefExpr 0x563c048c7ce8 'int' lvalue Var 0x563c048c7ba8 'd' 'int'
+BinaryOperator 0x563c048c7d30 'int' lvalue '='
+|-DeclRefExpr 0x563c048c7ce8 'int' lvalue Var 0x563c048c7ba8 'd' 'int'
+`-IntegerLiteral 0x563c048c7d10 'int' 2
 Block with ID=3
-DeclRefExpr 0x55af694c1c78 'int' lvalue Var 0x55af694c1b30 'c' 'int'
-BinaryOperator 0x55af694c1cc0 'int' lvalue '='
-|-DeclRefExpr 0x55af694c1c78 'int' lvalue Var 0x55af694c1b30 'c' 'int'
-`-IntegerLiteral 0x55af694c1ca0 'int' 1
+DeclRefExpr 0x563c048c7c78 'int' lvalue Var 0x563c048c7b30 'c' 'int'
+BinaryOperator 0x563c048c7cc0 'int' lvalue '='
+|-DeclRefExpr 0x563c048c7c78 'int' lvalue Var 0x563c048c7b30 'c' 'int'
+`-IntegerLiteral 0x563c048c7ca0 'int' 1
 Block with ID=1
 Block with ID=0
