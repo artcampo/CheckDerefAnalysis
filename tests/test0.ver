@@ -43,14 +43,14 @@ Enqeue block with ID=5
 Block with ID=5
 Block with ID=4
 Block with ID=2
-Binary: BinaryOperator 0x55c0cbbd2d30 'int' lvalue '='
-|-DeclRefExpr 0x55c0cbbd2ce8 'int' lvalue Var 0x55c0cbbd2ba8 'd' 'int'
-`-IntegerLiteral 0x55c0cbbd2d10 'int' 2
+Binary: BinaryOperator 0x55ce65aefd30 'int' lvalue '='
+|-DeclRefExpr 0x55ce65aefce8 'int' lvalue Var 0x55ce65aefba8 'd' 'int'
+`-IntegerLiteral 0x55ce65aefd10 'int' 2
 
 Block with ID=3
-Binary: BinaryOperator 0x55c0cbbd2cc0 'int' lvalue '='
-|-DeclRefExpr 0x55c0cbbd2c78 'int' lvalue Var 0x55c0cbbd2b30 'c' 'int'
-`-IntegerLiteral 0x55c0cbbd2ca0 'int' 1
+Binary: BinaryOperator 0x55ce65aefcc0 'int' lvalue '='
+|-DeclRefExpr 0x55ce65aefc78 'int' lvalue Var 0x55ce65aefb30 'c' 'int'
+`-IntegerLiteral 0x55ce65aefca0 'int' 1
 
 Block with ID=1
 Block with ID=0
