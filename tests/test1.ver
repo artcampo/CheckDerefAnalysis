@@ -46,17 +46,17 @@ Enqeue block with ID=4
 Block with ID=4
 Block with ID=3
 Block with ID=1
-Binary: BinaryOperator 0x5576bdc84e18 'int *' lvalue '='
-|-DeclRefExpr 0x5576bdc84da8 'int *' lvalue Var 0x5576bdc84bf0 'p' 'int *'
-`-UnaryOperator 0x5576bdc84df8 'int *' prefix '&'
-  `-DeclRefExpr 0x5576bdc84dd0 'int' lvalue Var 0x5576bdc84c80 'a' 'int'
+Binary: BinaryOperator 0x561dca838e18 'int *' lvalue '='
+|-DeclRefExpr 0x561dca838da8 'int *' lvalue Var 0x561dca838bf0 'p' 'int *'
+`-UnaryOperator 0x561dca838df8 'int *' prefix '&'
+  `-DeclRefExpr 0x561dca838dd0 'int' lvalue Var 0x561dca838c80 'a' 'int'
 
-Assignment to: VarDecl 0x5576bdc84bf0 <test1.cpp:4:3, col:8> col:8 used p 'int *'
+Assignment to: VarDecl 0x561dca838bf0 <test1.cpp:4:3, col:8> col:8 used p 'int *'
 
 Block with ID=2
-Binary: BinaryOperator 0x5576bdc84d80 'int' lvalue '='
-|-DeclRefExpr 0x5576bdc84d38 'int' lvalue Var 0x5576bdc84c80 'a' 'int'
-`-IntegerLiteral 0x5576bdc84d60 'int' 2
+Binary: BinaryOperator 0x561dca838d80 'int' lvalue '='
+|-DeclRefExpr 0x561dca838d38 'int' lvalue Var 0x561dca838c80 'a' 'int'
+`-IntegerLiteral 0x561dca838d60 'int' 2
 
 Block with ID=0
 NullPtrCheckAfterDereference,

@@ -47,20 +47,20 @@ CFG:
 Enqeue block with ID=4
 Block with ID=4
 Block with ID=3
-Binary: BinaryOperator 0x558b01f61c68 'int *' lvalue '='
-|-DeclRefExpr 0x558b01f61bf8 'int *' lvalue Var 0x558b01f61b80 'p' 'int *'
-`-UnaryOperator 0x558b01f61c48 'int *' prefix '&'
-  `-DeclRefExpr 0x558b01f61c20 'int' lvalue Var 0x558b01f61ac0 'c' 'int'
+Binary: BinaryOperator 0x5580c9fa9c68 'int *' lvalue '='
+|-DeclRefExpr 0x5580c9fa9bf8 'int *' lvalue Var 0x5580c9fa9b80 'p' 'int *'
+`-UnaryOperator 0x5580c9fa9c48 'int *' prefix '&'
+  `-DeclRefExpr 0x5580c9fa9c20 'int' lvalue Var 0x5580c9fa9ac0 'c' 'int'
 
-Assignment to: VarDecl 0x558b01f61b80 <test2.cpp:3:3, col:8> col:8 used p 'int *'
+Assignment to: VarDecl 0x5580c9fa9b80 <test2.cpp:3:3, col:8> col:8 used p 'int *'
 
-Binary: BinaryOperator 0x558b01f61d10 'int' lvalue '='
-|-UnaryOperator 0x558b01f61cd0 'int' lvalue prefix '*'
-| `-ImplicitCastExpr 0x558b01f61cb8 'int *' <LValueToRValue>
-|   `-DeclRefExpr 0x558b01f61c90 'int *' lvalue Var 0x558b01f61b80 'p' 'int *'
-`-IntegerLiteral 0x558b01f61cf0 'int' 2
+Binary: BinaryOperator 0x5580c9fa9d10 'int' lvalue '='
+|-UnaryOperator 0x5580c9fa9cd0 'int' lvalue prefix '*'
+| `-ImplicitCastExpr 0x5580c9fa9cb8 'int *' <LValueToRValue>
+|   `-DeclRefExpr 0x5580c9fa9c90 'int *' lvalue Var 0x5580c9fa9b80 'p' 'int *'
+`-IntegerLiteral 0x5580c9fa9cf0 'int' 2
 
-Deref on: VarDecl 0x558b01f61b80 <test2.cpp:3:3, col:8> col:8 used p 'int *'
+Deref on: VarDecl 0x5580c9fa9b80 <test2.cpp:3:3, col:8> col:8 used p 'int *'
 
 Block with ID=2
 Block with ID=1
