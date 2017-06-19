@@ -2,8 +2,9 @@ int main(){
   int c;
   int* p;
   p = &c;
-  c = 4;
-  c = 4 + *p + 2;
+  *p = 1;
+  c = 2;
+  c = 3 + *p + 4;
   return 0;
 }
 NullPtrCheckAfterDereference,
@@ -18,17 +19,21 @@ CFG:
    4: &[B1.3]
    5: p
    6: [B1.5] = [B1.4]
-   7: c
-   8: [B1.7] = 4
-   9: p
-  10: [B1.9] (ImplicitCastExpr, LValueToRValue, int *)
-  11: *[B1.10]
-  12: [B1.11] (ImplicitCastExpr, LValueToRValue, int)
-  13: 4 + [B1.12]
-  14: [B1.13] + 2
-  15: c
-  16: [B1.15] = [B1.14]
-  17: return 0;
+   7: p
+   8: [B1.7] (ImplicitCastExpr, LValueToRValue, int *)
+   9: *[B1.8]
+  10: [B1.9] = 1
+  11: c
+  12: [B1.11] = 2
+  13: p
+  14: [B1.13] (ImplicitCastExpr, LValueToRValue, int *)
+  15: *[B1.14]
+  16: [B1.15] (ImplicitCastExpr, LValueToRValue, int)
+  17: 3 + [B1.16]
+  18: [B1.17] + 4
+  19: c
+  20: [B1.19] = [B1.18]
+  21: return 0;
    Preds (1): B2
    Succs (1): B0
 
@@ -39,11 +44,50 @@ CFG:
 Enqeue block with ID=2
 Block with ID=2
 Block with ID=1
-DeclRefExpr 0x563ebec18c20 'int' lvalue Var 0x563ebec18ac0 'c' 'int'
-DeclRefExpr 0x563ebec18bf8 'int *' lvalue Var 0x563ebec18b80 'p' 'int *'
-Assignment to: VarDecl 0x563ebec18b80 <test3.cpp:3:3, col:8> col:8 used p 'int *'
+Binary: BinaryOperator 0x555f72407c68 'int *' lvalue '='
+|-DeclRefExpr 0x555f72407bf8 'int *' lvalue Var 0x555f72407b80 'p' 'int *'
+`-UnaryOperator 0x555f72407c48 'int *' prefix '&'
+  `-DeclRefExpr 0x555f72407c20 'int' lvalue Var 0x555f72407ac0 'c' 'int'
 
-DeclRefExpr 0x563ebec18c90 'int' lvalue Var 0x563ebec18ac0 'c' 'int'
-DeclRefExpr 0x563ebec18d48 'int *' lvalue Var 0x563ebec18b80 'p' 'int *'
-DeclRefExpr 0x563ebec18d00 'int' lvalue Var 0x563ebec18ac0 'c' 'int'
+Assignment to: VarDecl 0x555f72407b80 <test3.cpp:3:3, col:8> col:8 used p 'int *'
+
+Binary: BinaryOperator 0x555f72407d10 'int' lvalue '='
+|-UnaryOperator 0x555f72407cd0 'int' lvalue prefix '*'
+| `-ImplicitCastExpr 0x555f72407cb8 'int *' <LValueToRValue>
+|   `-DeclRefExpr 0x555f72407c90 'int *' lvalue Var 0x555f72407b80 'p' 'int *'
+`-IntegerLiteral 0x555f72407cf0 'int' 1
+
+Deref on: VarDecl 0x555f72407b80 <test3.cpp:3:3, col:8> col:8 used p 'int *'
+
+Binary: BinaryOperator 0x555f72407d80 'int' lvalue '='
+|-DeclRefExpr 0x555f72407d38 'int' lvalue Var 0x555f72407ac0 'c' 'int'
+`-IntegerLiteral 0x555f72407d60 'int' 2
+
+Binary: BinaryOperator 0x555f72407e68 'int' '+'
+|-IntegerLiteral 0x555f72407dd0 'int' 3
+`-ImplicitCastExpr 0x555f72407e50 'int' <LValueToRValue>
+  `-UnaryOperator 0x555f72407e30 'int' lvalue prefix '*'
+    `-ImplicitCastExpr 0x555f72407e18 'int *' <LValueToRValue>
+      `-DeclRefExpr 0x555f72407df0 'int *' lvalue Var 0x555f72407b80 'p' 'int *'
+
+Binary: BinaryOperator 0x555f72407eb0 'int' '+'
+|-BinaryOperator 0x555f72407e68 'int' '+'
+| |-IntegerLiteral 0x555f72407dd0 'int' 3
+| `-ImplicitCastExpr 0x555f72407e50 'int' <LValueToRValue>
+|   `-UnaryOperator 0x555f72407e30 'int' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x555f72407e18 'int *' <LValueToRValue>
+|       `-DeclRefExpr 0x555f72407df0 'int *' lvalue Var 0x555f72407b80 'p' 'int *'
+`-IntegerLiteral 0x555f72407e90 'int' 4
+
+Binary: BinaryOperator 0x555f72407ed8 'int' lvalue '='
+|-DeclRefExpr 0x555f72407da8 'int' lvalue Var 0x555f72407ac0 'c' 'int'
+`-BinaryOperator 0x555f72407eb0 'int' '+'
+  |-BinaryOperator 0x555f72407e68 'int' '+'
+  | |-IntegerLiteral 0x555f72407dd0 'int' 3
+  | `-ImplicitCastExpr 0x555f72407e50 'int' <LValueToRValue>
+  |   `-UnaryOperator 0x555f72407e30 'int' lvalue prefix '*'
+  |     `-ImplicitCastExpr 0x555f72407e18 'int *' <LValueToRValue>
+  |       `-DeclRefExpr 0x555f72407df0 'int *' lvalue Var 0x555f72407b80 'p' 'int *'
+  `-IntegerLiteral 0x555f72407e90 'int' 4
+
 Block with ID=0
