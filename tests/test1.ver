@@ -45,19 +45,14 @@ CFG:
 Enqeue block with ID=4
 Block with ID=4
 Block with ID=3
-DeclRefExpr 0x55aef4690cf8 'volatile _Bool' lvalue Var 0x55aef4690a18 'b' 'volatile _Bool'
+DeclRefExpr 0x55f3ae665cf8 'volatile _Bool' lvalue Var 0x55f3ae665a18 'b' 'volatile _Bool'
 Block with ID=1
-DeclRefExpr 0x55aef4690dd0 'int' lvalue Var 0x55aef4690c80 'a' 'int'
-DeclRefExpr 0x55aef4690da8 'int *' lvalue Var 0x55aef4690bf0 'p' 'int *'
-BinaryOperator 0x55aef4690e18 'int *' lvalue '='
-|-DeclRefExpr 0x55aef4690da8 'int *' lvalue Var 0x55aef4690bf0 'p' 'int *'
-`-UnaryOperator 0x55aef4690df8 'int *' prefix '&'
-  `-DeclRefExpr 0x55aef4690dd0 'int' lvalue Var 0x55aef4690c80 'a' 'int'
+DeclRefExpr 0x55f3ae665dd0 'int' lvalue Var 0x55f3ae665c80 'a' 'int'
+DeclRefExpr 0x55f3ae665da8 'int *' lvalue Var 0x55f3ae665bf0 'p' 'int *'
+Assignment to: VarDecl 0x55f3ae665bf0 <test1.cpp:4:3, col:8> col:8 used p 'int *'
+
 Block with ID=2
-DeclRefExpr 0x55aef4690d38 'int' lvalue Var 0x55aef4690c80 'a' 'int'
-BinaryOperator 0x55aef4690d80 'int' lvalue '='
-|-DeclRefExpr 0x55aef4690d38 'int' lvalue Var 0x55aef4690c80 'a' 'int'
-`-IntegerLiteral 0x55aef4690d60 'int' 2
+DeclRefExpr 0x55f3ae665d38 'int' lvalue Var 0x55f3ae665c80 'a' 'int'
 Block with ID=0
 NullPtrCheckAfterDereference,
 CFG: 
@@ -80,5 +75,5 @@ CFG:
 Enqeue block with ID=2
 Block with ID=2
 Block with ID=1
-DeclRefExpr 0x55aef46910b0 'void (void)' lvalue Function 0x55aef4690b10 'f' 'void (void)'
+DeclRefExpr 0x55f3ae6660b0 'void (void)' lvalue Function 0x55f3ae665b10 'f' 'void (void)'
 Block with ID=0

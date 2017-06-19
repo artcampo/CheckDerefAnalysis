@@ -47,19 +47,12 @@ CFG:
 Enqeue block with ID=4
 Block with ID=4
 Block with ID=3
-DeclRefExpr 0x55bbc4e41c20 'int' lvalue Var 0x55bbc4e41ac0 'c' 'int'
-DeclRefExpr 0x55bbc4e41bf8 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
-BinaryOperator 0x55bbc4e41c68 'int *' lvalue '='
-|-DeclRefExpr 0x55bbc4e41bf8 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
-`-UnaryOperator 0x55bbc4e41c48 'int *' prefix '&'
-  `-DeclRefExpr 0x55bbc4e41c20 'int' lvalue Var 0x55bbc4e41ac0 'c' 'int'
-DeclRefExpr 0x55bbc4e41c90 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
-BinaryOperator 0x55bbc4e41d10 'int' lvalue '='
-|-UnaryOperator 0x55bbc4e41cd0 'int' lvalue prefix '*'
-| `-ImplicitCastExpr 0x55bbc4e41cb8 'int *' <LValueToRValue>
-|   `-DeclRefExpr 0x55bbc4e41c90 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
-`-IntegerLiteral 0x55bbc4e41cf0 'int' 2
-DeclRefExpr 0x55bbc4e41d38 'int *' lvalue Var 0x55bbc4e41b80 'p' 'int *'
+DeclRefExpr 0x562657dccc20 'int' lvalue Var 0x562657dccac0 'c' 'int'
+DeclRefExpr 0x562657dccbf8 'int *' lvalue Var 0x562657dccb80 'p' 'int *'
+Assignment to: VarDecl 0x562657dccb80 <test2.cpp:3:3, col:8> col:8 used p 'int *'
+
+DeclRefExpr 0x562657dccc90 'int *' lvalue Var 0x562657dccb80 'p' 'int *'
+DeclRefExpr 0x562657dccd38 'int *' lvalue Var 0x562657dccb80 'p' 'int *'
 Block with ID=2
 Block with ID=1
 Block with ID=0
