@@ -4,6 +4,7 @@ int main(){
   p = &c;
   *p = 1;
   c = 2;
+  c += *p;
   c = 3 + *p + 4;
   return 0;
 }
