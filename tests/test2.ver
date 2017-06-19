@@ -37,20 +37,20 @@ CFG:
 Enqeue block with ID=4
 Block with ID=4
 Block with ID=3
-Binary: BinaryOperator 0x000000000000 'int *' lvalue '='
-|-DeclRefExpr 0x000000000000 'int *' lvalue Var 0x000000000000 'p' 'int *'
-`-UnaryOperator 0x000000000000 'int *' prefix '&'
-  `-DeclRefExpr 0x000000000000 'int' lvalue Var 0x000000000000 'c' 'int'
+Binary: BinaryOperator  'int *' lvalue '='
+|-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
+`-UnaryOperator  'int *' prefix '&'
+  `-DeclRefExpr  'int' lvalue Var  'c' 'int'
 
-Assignment to: VarDecl 0x000000000000 <test2.cpp:3:3, col:8> col:8 used p 'int *'
+Assignment to: VarDecl  <test2.cpp:3:3, col:8> col:8 used p 'int *'
 
-Binary: BinaryOperator 0x000000000000 'int' lvalue '='
-|-UnaryOperator 0x000000000000 'int' lvalue prefix '*'
-| `-ImplicitCastExpr 0x000000000000 'int *' <LValueToRValue>
-|   `-DeclRefExpr 0x000000000000 'int *' lvalue Var 0x000000000000 'p' 'int *'
-`-IntegerLiteral 0x000000000000 'int' 2
+Binary: BinaryOperator  'int' lvalue '='
+|-UnaryOperator  'int' lvalue prefix '*'
+| `-ImplicitCastExpr  'int *' <LValueToRValue>
+|   `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
+`-IntegerLiteral  'int' 2
 
-Deref on: VarDecl 0x000000000000 <test2.cpp:3:3, col:8> col:8 used p 'int *'
+Deref on: VarDecl  <test2.cpp:3:3, col:8> col:8 used p 'int *'
 
 Block with ID=2
 Block with ID=1

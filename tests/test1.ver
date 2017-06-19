@@ -34,17 +34,17 @@ Enqeue block with ID=4
 Block with ID=4
 Block with ID=3
 Block with ID=1
-Binary: BinaryOperator 0x000000000000 'int *' lvalue '='
-|-DeclRefExpr 0x000000000000 'int *' lvalue Var 0x000000000000 'p' 'int *'
-`-UnaryOperator 0x000000000000 'int *' prefix '&'
-  `-DeclRefExpr 0x000000000000 'int' lvalue Var 0x000000000000 'a' 'int'
+Binary: BinaryOperator  'int *' lvalue '='
+|-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
+`-UnaryOperator  'int *' prefix '&'
+  `-DeclRefExpr  'int' lvalue Var  'a' 'int'
 
-Assignment to: VarDecl 0x000000000000 <test1.cpp:4:3, col:8> col:8 used p 'int *'
+Assignment to: VarDecl  <test1.cpp:4:3, col:8> col:8 used p 'int *'
 
 Block with ID=2
-Binary: BinaryOperator 0x000000000000 'int' lvalue '='
-|-DeclRefExpr 0x000000000000 'int' lvalue Var 0x000000000000 'a' 'int'
-`-IntegerLiteral 0x000000000000 'int' 2
+Binary: BinaryOperator  'int' lvalue '='
+|-DeclRefExpr  'int' lvalue Var  'a' 'int'
+`-IntegerLiteral  'int' 2
 
 Block with ID=0
 NullPtrCheckAfterDereference,
