@@ -1,0 +1,92 @@
+int main(){
+  int* p;
+  if(p) {
+    int c;
+  }
+  if(!p){
+    int d;
+  }
+}NullPtrCheckAfterDereference,
+CFG: 
+ [B5 (ENTRY)]
+   Succs (1): B4
+
+ [B1]
+   1: int d;
+   Preds (1): B2
+   Succs (1): B0
+
+ [B2]
+   1: p
+   2: [B2.1] (ImplicitCastExpr, LValueToRValue, int *)
+   3: [B2.2] (ImplicitCastExpr, PointerToBoolean, _Bool)
+   4: ![B2.3]
+   T: if [B2.4]
+   Preds (2): B3 B4
+   Succs (2): B1 B0
+
+ [B3]
+   1: int c;
+   Preds (1): B4
+   Succs (1): B2
+
+ [B4]
+   1: int *p;
+   2: p
+   3: [B4.2] (ImplicitCastExpr, LValueToRValue, int *)
+   4: [B4.3] (ImplicitCastExpr, PointerToBoolean, _Bool)
+   T: if [B4.4]
+   Preds (1): B5
+   Succs (2): B3 B2
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2
+
+
+Enqeue block with ID=5
+Block with ID=5
+Block with ID=4
+Block with ID=3
+Block with ID=2
+Block with ID=1
+Block with ID=0
+TranslationUnitDecl  <<invalid sloc>> <invalid sloc>
+|-TypedefDecl  <<invalid sloc>> <invalid sloc> implicit __int128_t '__int128'
+| `-BuiltinType  '__int128'
+|-TypedefDecl  <<invalid sloc>> <invalid sloc> implicit __uint128_t 'unsigned __int128'
+| `-BuiltinType  'unsigned __int128'
+|-TypedefDecl  <<invalid sloc>> <invalid sloc> implicit __NSConstantString 'struct __NSConstantString_tag'
+| `-RecordType  'struct __NSConstantString_tag'
+|   `-CXXRecord  '__NSConstantString_tag'
+|-TypedefDecl  <<invalid sloc>> <invalid sloc> implicit __builtin_ms_va_list 'char *'
+| `-PointerType  'char *'
+|   `-BuiltinType  'char'
+|-TypedefDecl  <<invalid sloc>> <invalid sloc> implicit __builtin_va_list 'struct __va_list_tag [1]'
+| `-ConstantArrayType  'struct __va_list_tag [1]' 1 
+|   `-RecordType  'struct __va_list_tag'
+|     `-CXXRecord  '__va_list_tag'
+`-FunctionDecl  <check.cpp:1:1, line:9:1> line:1:5 main 'int (void)'
+  `-CompoundStmt  <col:11, line:9:1>
+    |-DeclStmt  <line:2:3, col:9>
+    | `-VarDecl  <col:3, col:8> col:8 used p 'int *'
+    |-IfStmt  <line:3:3, line:5:3>
+    | |-<<<NULL>>>
+    | |-<<<NULL>>>
+    | |-ImplicitCastExpr  <line:3:6> '_Bool' <PointerToBoolean>
+    | | `-ImplicitCastExpr  <col:6> 'int *' <LValueToRValue>
+    | |   `-DeclRefExpr  <col:6> 'int *' lvalue Var  'p' 'int *'
+    | |-CompoundStmt  <col:9, line:5:3>
+    | | `-DeclStmt  <line:4:5, col:10>
+    | |   `-VarDecl  <col:5, col:9> col:9 c 'int'
+    | `-<<<NULL>>>
+    `-IfStmt  <line:6:3, line:8:3>
+      |-<<<NULL>>>
+      |-<<<NULL>>>
+      |-UnaryOperator  <line:6:6, col:7> '_Bool' prefix '!'
+      | `-ImplicitCastExpr  <col:7> '_Bool' <PointerToBoolean>
+      |   `-ImplicitCastExpr  <col:7> 'int *' <LValueToRValue>
+      |     `-DeclRefExpr  <col:7> 'int *' lvalue Var  'p' 'int *'
+      |-CompoundStmt  <col:9, line:8:3>
+      | `-DeclStmt  <line:7:5, col:10>
+      |   `-VarDecl  <col:5, col:9> col:9 d 'int'
+      `-<<<NULL>>>
