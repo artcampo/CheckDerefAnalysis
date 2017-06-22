@@ -62,6 +62,15 @@ Binary: BinaryOperator  'int' lvalue '='
 
 Deref on: VarDecl  <test2.cpp:3:3, col:8> col:8 used p 'int *'
 
+If: IfStmt 
+|-<<<NULL>>>
+|-<<<NULL>>>
+|-ImplicitCastExpr  '_Bool' <PointerToBoolean>
+| `-ImplicitCastExpr  'int *' <LValueToRValue>
+|   `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
+|-CompoundStmt 
+`-<<<NULL>>>
+
 Block with ID=2
 Block with ID=1
 Block with ID=0

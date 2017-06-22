@@ -42,6 +42,18 @@ CFG:
 Enqeue block with ID=5
 Block with ID=5
 Block with ID=4
+If: IfStmt 
+|-<<<NULL>>>
+|-<<<NULL>>>
+|-ImplicitCastExpr  '_Bool' <LValueToRValue>
+| `-DeclRefExpr  'volatile _Bool' lvalue Var  'b' 'volatile _Bool'
+|-BinaryOperator  'int' lvalue '='
+| |-DeclRefExpr  'int' lvalue Var  'c' 'int'
+| `-IntegerLiteral  'int' 1
+`-BinaryOperator  'int' lvalue '='
+  |-DeclRefExpr  'int' lvalue Var  'd' 'int'
+  `-IntegerLiteral  'int' 2
+
 Block with ID=2
 Binary: BinaryOperator  'int' lvalue '='
 |-DeclRefExpr  'int' lvalue Var  'd' 'int'

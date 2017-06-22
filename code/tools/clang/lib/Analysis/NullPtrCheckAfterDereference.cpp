@@ -250,6 +250,7 @@ void TransferFunctions::VisitBinaryOperator(BinaryOperator *BO) {
   findDeref(BO->getRHS());
 }
 
+
 void TransferFunctions::VisitDeclStmt(DeclStmt *DS) {
   
 
@@ -278,6 +279,18 @@ static void runOnBlock(const CFGBlock *block, const CFG &cfg,
     if (Optional<CFGStmt> cs = I->getAs<CFGStmt>())
       tf.Visit(const_cast<Stmt*>(cs->getStmt()));
   }
+  
+
+  if (const IfStmt *IfNode =
+    dyn_cast_or_null<IfStmt>(block->getTerminator().getStmt())) {
+     llvm::errs() << "If: "; IfNode->dump(); llvm::errs() << "\n";
+  }
+  
+  if (const ConditionalOperator *TernaryOpNode =
+    dyn_cast_or_null<ConditionalOperator>(block->getTerminator().getStmt())) {
+     llvm::errs() << "Ternary: "; TernaryOpNode->dump(); llvm::errs() << "\n";
+  }  
+
 }
 
 void clang::runNullPtrCheckAfterDereferenceAnalysis(

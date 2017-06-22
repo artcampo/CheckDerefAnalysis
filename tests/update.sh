@@ -13,6 +13,7 @@ test test0
 test test1
 test test2
 test test3
+test test_check
 
 rm ../code/tools -rf
 mkdir ../code/tools/

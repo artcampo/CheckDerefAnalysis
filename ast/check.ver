@@ -79,15 +79,7 @@ Block with ID=6
 Block with ID=5
 Block with ID=4
 Block with ID=3
-Binary: BinaryOperator  'int' lvalue '='
-|-DeclRefExpr  'int' lvalue Var  'a' 'int'
-`-IntegerLiteral  'int' 2
-
 Block with ID=2
-Binary: BinaryOperator  'int' lvalue '='
-|-DeclRefExpr  'int' lvalue Var  'a' 'int'
-`-IntegerLiteral  'int' 1
-
 Block with ID=1
 Block with ID=0
 TranslationUnitDecl  <<invalid sloc>> <invalid sloc>
