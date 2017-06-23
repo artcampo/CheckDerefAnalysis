@@ -71,6 +71,8 @@ If: IfStmt
 |-CompoundStmt 
 `-<<<NULL>>>
 
+Check to: VarDecl  <test2.cpp:3:3, col:8> col:8 used p 'int *'
+
 Block with ID=2
 Block with ID=1
 Block with ID=0

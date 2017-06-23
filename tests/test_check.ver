@@ -85,6 +85,8 @@ If: IfStmt
 |   `-VarDecl   c 'int'
 `-<<<NULL>>>
 
+Check to: VarDecl  <test_check.cpp:2:3, col:8> col:8 used p 'int *'
+
 Block with ID=7
 Block with ID=6
 If: IfStmt 
@@ -111,6 +113,8 @@ Ternary: ConditionalOperator  'int' lvalue
 `-BinaryOperator  'int' lvalue '='
   |-DeclRefExpr  'int' lvalue Var  'a' 'int'
   `-IntegerLiteral  'int' 2
+
+Check to: VarDecl  <test_check.cpp:2:3, col:8> col:8 used p 'int *'
 
 Block with ID=3
 Binary: BinaryOperator  'int' lvalue '='

@@ -186,6 +186,23 @@ const VarDecl* findDeref(const Expr *E, const DeclContext *DC) {
 
 }
 
+//only returns VarDecl for (ptr) or (!ptr)
+const VarDecl* findPtrCheck(const Expr *E, const DeclContext *DC) {
+  E = E->IgnoreParenCasts();
+  
+  //(!ptr)
+  if (const UnaryOperator *UO = dyn_cast<UnaryOperator>(E)) {
+    if(UO->getOpcode() == UO_Not) {
+      const VarDecl* VD = findVar(UO->getSubExpr()->IgnoreParenCasts(), DC);      
+      llvm::errs() << "Check on: "; VD->dump(); llvm::errs() << "\n";
+    }
+    return nullptr;
+  }  
+  
+  //(ptr)
+  return findVar(E, DC);      
+}
+
 //------------------------------------------------------------------------====//
 // Transfer function for NullPtrCheckAfterDereference
 //====------------------------------------------------------------------------//
@@ -210,6 +227,8 @@ public:
   void VisitDeclStmt(DeclStmt *ds);
   void VisitObjCForCollectionStmt(ObjCForCollectionStmt *FS);
   void VisitObjCMessageExpr(ObjCMessageExpr *ME);
+  
+  void VisitConditionExpr(const Expr *ex);
 
   const VarDecl* findVar(const Expr *ex) {
     return ::findVar(ex, cast<DeclContext>(ac.getDecl()));
@@ -218,6 +237,10 @@ public:
   const VarDecl* findDeref(const Expr *ex) {
     return ::findDeref(ex, cast<DeclContext>(ac.getDecl()));
   }  
+  
+  const VarDecl* findPtrCheck(const Expr *ex){
+    return ::findPtrCheck(ex, cast<DeclContext>(ac.getDecl()));
+  }
 };
 }
 
@@ -239,15 +262,20 @@ void TransferFunctions::VisitBinaryOperator(BinaryOperator *BO) {
   
   if (BO->getOpcode() == BO_Assign) {
     const VarDecl* VD = findVar(BO->getLHS());
-    if(VD){
-      llvm::errs() << "Assignment to: ";
-      VD->dump();
-      llvm::errs() << "\n";      
+    if(VD) {
+      llvm::errs() << "Assignment to: "; VD->dump(); llvm::errs() << "\n";
     }
   }
   
   findDeref(BO->getLHS());
   findDeref(BO->getRHS());
+}
+
+void TransferFunctions::VisitConditionExpr(const Expr *ex) {
+  const VarDecl* VD = findPtrCheck(ex);
+  if(VD) {
+    llvm::errs() << "Check to: "; VD->dump(); llvm::errs() << "\n";
+  }
 }
 
 
@@ -284,11 +312,13 @@ static void runOnBlock(const CFGBlock *block, const CFG &cfg,
   if (const IfStmt *IfNode =
     dyn_cast_or_null<IfStmt>(block->getTerminator().getStmt())) {
      llvm::errs() << "If: "; IfNode->dump(); llvm::errs() << "\n";
+     tf.VisitConditionExpr(IfNode->getCond());
   }
   
   if (const ConditionalOperator *TernaryOpNode =
     dyn_cast_or_null<ConditionalOperator>(block->getTerminator().getStmt())) {
      llvm::errs() << "Ternary: "; TernaryOpNode->dump(); llvm::errs() << "\n";
+     tf.VisitConditionExpr(TernaryOpNode->getCond());
   }  
 
 }
