@@ -74,57 +74,15 @@ CFG:
 Enqeue block with ID=9
 Block with ID=9
 Block with ID=8
-If: IfStmt 
-|-<<<NULL>>>
-|-<<<NULL>>>
-|-ImplicitCastExpr  '_Bool' <PointerToBoolean>
-| `-ImplicitCastExpr  'int *' <LValueToRValue>
-|   `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-|-CompoundStmt 
-| `-DeclStmt 
-|   `-VarDecl   c 'int'
-`-<<<NULL>>>
-
 Check to: VarDecl  <test_check.cpp:2:3, col:8> col:8 used p 'int *'
 
 Block with ID=7
 Block with ID=6
-If: IfStmt 
-|-<<<NULL>>>
-|-<<<NULL>>>
-|-UnaryOperator  '_Bool' prefix '!'
-| `-ImplicitCastExpr  '_Bool' <PointerToBoolean>
-|   `-ImplicitCastExpr  'int *' <LValueToRValue>
-|     `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-|-CompoundStmt 
-| `-DeclStmt 
-|   `-VarDecl   d 'int'
-`-<<<NULL>>>
-
 Block with ID=5
 Block with ID=4
-Ternary: ConditionalOperator  'int' lvalue
-|-ImplicitCastExpr  '_Bool' <PointerToBoolean>
-| `-ImplicitCastExpr  'int *' <LValueToRValue>
-|   `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-|-BinaryOperator  'int' lvalue '='
-| |-DeclRefExpr  'int' lvalue Var  'a' 'int'
-| `-IntegerLiteral  'int' 1
-`-BinaryOperator  'int' lvalue '='
-  |-DeclRefExpr  'int' lvalue Var  'a' 'int'
-  `-IntegerLiteral  'int' 2
-
 Check to: VarDecl  <test_check.cpp:2:3, col:8> col:8 used p 'int *'
 
 Block with ID=3
-Binary: BinaryOperator  'int' lvalue '='
-|-DeclRefExpr  'int' lvalue Var  'a' 'int'
-`-IntegerLiteral  'int' 2
-
 Block with ID=2
-Binary: BinaryOperator  'int' lvalue '='
-|-DeclRefExpr  'int' lvalue Var  'a' 'int'
-`-IntegerLiteral  'int' 1
-
 Block with ID=1
 Block with ID=0

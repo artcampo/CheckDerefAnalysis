@@ -51,61 +51,12 @@ CFG:
 Enqeue block with ID=2
 Block with ID=2
 Block with ID=1
-Binary: BinaryOperator  'int *' lvalue '='
-|-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-`-UnaryOperator  'int *' prefix '&'
-  `-DeclRefExpr  'int' lvalue Var  'c' 'int'
-
 Assignment to: VarDecl  <test3.cpp:3:3, col:8> col:8 used p 'int *'
 
-Binary: BinaryOperator  'int' lvalue '='
-|-UnaryOperator  'int' lvalue prefix '*'
-| `-ImplicitCastExpr  'int *' <LValueToRValue>
-|   `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-`-IntegerLiteral  'int' 1
+Deref on: VarDecl  <test3.cpp:3:3, col:8> col:8 used p 'int *'
 
 Deref on: VarDecl  <test3.cpp:3:3, col:8> col:8 used p 'int *'
 
-Binary: BinaryOperator  'int' lvalue '='
-|-DeclRefExpr  'int' lvalue Var  'c' 'int'
-`-IntegerLiteral  'int' 2
-
-Binary: CompoundAssignOperator  'int' lvalue '+=' ComputeLHSTy='int' ComputeResultTy='int'
-|-DeclRefExpr  'int' lvalue Var  'c' 'int'
-`-ImplicitCastExpr  'int' <LValueToRValue>
-  `-UnaryOperator  'int' lvalue prefix '*'
-    `-ImplicitCastExpr  'int *' <LValueToRValue>
-      `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-
 Deref on: VarDecl  <test3.cpp:3:3, col:8> col:8 used p 'int *'
-
-Binary: BinaryOperator  'int' '+'
-|-IntegerLiteral  'int' 3
-`-ImplicitCastExpr  'int' <LValueToRValue>
-  `-UnaryOperator  'int' lvalue prefix '*'
-    `-ImplicitCastExpr  'int *' <LValueToRValue>
-      `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-
-Deref on: VarDecl  <test3.cpp:3:3, col:8> col:8 used p 'int *'
-
-Binary: BinaryOperator  'int' '+'
-|-BinaryOperator  'int' '+'
-| |-IntegerLiteral  'int' 3
-| `-ImplicitCastExpr  'int' <LValueToRValue>
-|   `-UnaryOperator  'int' lvalue prefix '*'
-|     `-ImplicitCastExpr  'int *' <LValueToRValue>
-|       `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-`-IntegerLiteral  'int' 4
-
-Binary: BinaryOperator  'int' lvalue '='
-|-DeclRefExpr  'int' lvalue Var  'c' 'int'
-`-BinaryOperator  'int' '+'
-  |-BinaryOperator  'int' '+'
-  | |-IntegerLiteral  'int' 3
-  | `-ImplicitCastExpr  'int' <LValueToRValue>
-  |   `-UnaryOperator  'int' lvalue prefix '*'
-  |     `-ImplicitCastExpr  'int *' <LValueToRValue>
-  |       `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-  `-IntegerLiteral  'int' 4
 
 Block with ID=0

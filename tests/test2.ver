@@ -47,29 +47,9 @@ CFG:
 Enqeue block with ID=4
 Block with ID=4
 Block with ID=3
-Binary: BinaryOperator  'int *' lvalue '='
-|-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-`-UnaryOperator  'int *' prefix '&'
-  `-DeclRefExpr  'int' lvalue Var  'c' 'int'
-
 Assignment to: VarDecl  <test2.cpp:3:3, col:8> col:8 used p 'int *'
 
-Binary: BinaryOperator  'int' lvalue '='
-|-UnaryOperator  'int' lvalue prefix '*'
-| `-ImplicitCastExpr  'int *' <LValueToRValue>
-|   `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-`-IntegerLiteral  'int' 2
-
 Deref on: VarDecl  <test2.cpp:3:3, col:8> col:8 used p 'int *'
-
-If: IfStmt 
-|-<<<NULL>>>
-|-<<<NULL>>>
-|-ImplicitCastExpr  '_Bool' <PointerToBoolean>
-| `-ImplicitCastExpr  'int *' <LValueToRValue>
-|   `-DeclRefExpr  'int *' lvalue Var  'p' 'int *'
-|-CompoundStmt 
-`-<<<NULL>>>
 
 Check to: VarDecl  <test2.cpp:3:3, col:8> col:8 used p 'int *'
 

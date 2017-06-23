@@ -258,7 +258,7 @@ void TransferFunctions::VisitDeclRefExpr(DeclRefExpr *dr) {
 }
 
 void TransferFunctions::VisitBinaryOperator(BinaryOperator *BO) {
-  llvm::errs() << "Binary: "; BO->dump(); llvm::errs() << "\n";
+//   llvm::errs() << "Binary: "; BO->dump(); llvm::errs() << "\n";
   
   if (BO->getOpcode() == BO_Assign) {
     const VarDecl* VD = findVar(BO->getLHS());
@@ -311,13 +311,13 @@ static void runOnBlock(const CFGBlock *block, const CFG &cfg,
 
   if (const IfStmt *IfNode =
     dyn_cast_or_null<IfStmt>(block->getTerminator().getStmt())) {
-     llvm::errs() << "If: "; IfNode->dump(); llvm::errs() << "\n";
+//      llvm::errs() << "If: "; IfNode->dump(); llvm::errs() << "\n";
      tf.VisitConditionExpr(IfNode->getCond());
   }
   
   if (const ConditionalOperator *TernaryOpNode =
     dyn_cast_or_null<ConditionalOperator>(block->getTerminator().getStmt())) {
-     llvm::errs() << "Ternary: "; TernaryOpNode->dump(); llvm::errs() << "\n";
+//      llvm::errs() << "Ternary: "; TernaryOpNode->dump(); llvm::errs() << "\n";
      tf.VisitConditionExpr(TernaryOpNode->getCond());
   }  
 
